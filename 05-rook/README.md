@@ -14,6 +14,7 @@ Just run the files in order
 
 ``` shell
 kubectl apple -f 01-common.yaml
+kubectl label namespace rook-ceph monitor=true
 kubectl apple -f 02-operator.yaml
 kubectl apple -f 03-cluster.yaml
 kubectl apple -f 04-storageclass.yaml

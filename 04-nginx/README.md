@@ -16,6 +16,7 @@ First create a nginx namespace:
 
 ``` shell
 kubectl create namespace nginx
+kubectl label namespace nginx monitor=true
 ```
 
 Then install via the helm chart with the values.yaml file:
