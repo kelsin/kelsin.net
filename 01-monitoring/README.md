@@ -17,6 +17,7 @@ First create a monitoring namespace:
 
 ``` shell
 kubectl create namespace monitoring
+kubectl label namespace monitoring monitor=true
 ```
 
 Create a secret for the grafana admin username and password:
@@ -29,10 +30,4 @@ Then install via the helm chart with the values.yaml file:
 
 ``` shell
 helm install prometheus --values ./values.yaml --namespace monitoring stable/prometheus-operator
-```
-
-Remember to label any namespaces that you want to monitor:
-
-``` shell
-kubectl label namespace monitoring monitor=true
 ```
