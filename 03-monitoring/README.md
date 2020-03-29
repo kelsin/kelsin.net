@@ -19,6 +19,12 @@ First create a monitoring namespace:
 kubectl create namespace monitoring
 ```
 
+Create a secret for the grafana admin username and password:
+
+``` shell
+kubectl create secret generic -n monitoring grafana-admin --from-literal=admin-user=admin --from-literal=admin-password=<PASSWORD>
+```
+
 Then install via the helm chart with the values.yaml file:
 
 ``` shell

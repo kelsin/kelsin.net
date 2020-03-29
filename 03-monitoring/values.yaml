@@ -1,28 +1,29 @@
 alertmanager:
-    ingress:
-        enabled: true
-        annotations:
-            cert-manager.io/cluster-issuer: letsencrypt-production
-            external-dns.alpha.kubernetes.io/hostname: alerts.kelsin.net
-        hosts:
-            - alerts.kelsin.net
-        tls:
-            - secretName: alertmanager-server-tls
-              hosts:
-                  - alerts.kelsin.net
+    enabled: false
 prometheus:
+    prometheusSpec:
+        serviceMonitorNamespaceSelector:
+            matchLabels:
+                monitor: "true"
+        podMonitorNamespaceSelector:
+            matchLabels:
+                monitor: "true"
     ingress:
-        enabled: true
-        annotations:
-            cert-manager.io/cluster-issuer: letsencrypt-production
-            external-dns.alpha.kubernetes.io/hostname: prometheus.kelsin.net
-        hosts:
-            - prometheus.kelsin.net
-        tls:
-            - secretName: prometheus-server-tls
-              hosts:
-                  - prometheus.kelsin.net
+        enabled: false
 grafana:
+    admin:
+        existingSecret: grafana-admin
+    dashboards:
+        default:
+            ceph-cluster:
+                gnetId: 2842
+                datasource: Prometheus
+            ceph-osd:
+                gnetId: 5336
+                datasource: Prometheus
+            ceph-pool:
+                gnetId: 5342
+                datasource: Prometheus
     ingress:
         enabled: true
         annotations:

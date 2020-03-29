@@ -1,6 +1,10 @@
 rbac:
     create: true
 controller:
+    metrics:
+        enabled: true
+        serviceMonitor:
+            enabled: true
     service:
         type: LoadBalancer
         externalTrafficPolicy: Local
