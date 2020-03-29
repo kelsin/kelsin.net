@@ -17,21 +17,24 @@ grafana:
         default:
             ceph-cluster:
                 gnetId: 2842
+                revision: 11
                 datasource: Prometheus
             ceph-osd:
                 gnetId: 5336
+                revision: 3
                 datasource: Prometheus
-            ceph-pool:
+            ceph-pools:
                 gnetId: 5342
+                revision: 3
                 datasource: Prometheus
     ingress:
         enabled: true
         annotations:
             cert-manager.io/cluster-issuer: letsencrypt-production
-            external-dns.alpha.kubernetes.io/hostname: grafana.kelsin.net
+            external-dns.alpha.kubernetes.io/hostname: grafana.kels.in
         hosts:
-            - grafana.kelsin.net
+            - grafana.kels.in
         tls:
             - secretName: grafana-server-tls
               hosts:
-                  - grafana.kelsin.net
+                  - grafana.kels.in
