@@ -8,7 +8,6 @@ Create the namespace:
 
 ``` shell
 kubectl create namespace cert-manager
-kubectl label namespace cert-manager monitor=true
 ```
 
 Install CRDs:

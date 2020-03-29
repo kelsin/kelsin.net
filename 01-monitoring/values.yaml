@@ -1,18 +1,23 @@
 alertmanager:
     enabled: false
 prometheus:
-    prometheusSpec:
-        serviceMonitorNamespaceSelector:
-            matchLabels:
-                monitor: "true"
-        podMonitorNamespaceSelector:
-            matchLabels:
-                monitor: "true"
     ingress:
-        enabled: false
+        enabled: true
+        annotations:
+            cert-manager.io/cluster-issuer: letsencrypt-production
+            external-dns.alpha.kubernetes.io/hostname: prometheus.kels.in
+            nginx.ingress.kubernetes.io/auth-type: basic
+            nginx.ingress.kubernetes.io/auth-secret: admin
+            nginx.ingress.kubernetes.io/auth-realm: 'Authentication Required - kels.in'
+        hosts:
+            - prometheus.kels.in
+        tls:
+            - secretName: prometheus-server-tls
+              hosts:
+                  - prometheus.kels.in
 grafana:
     admin:
-        existingSecret: grafana-admin
+        existingSecret: admin
     dashboards:
         default:
             ceph-cluster:
@@ -26,6 +31,9 @@ grafana:
                 gnetId: 5342
                 revision: 3
                 prometheus: Prometheus
+            cert-manager:
+                gnetId: 11001
+                revision: 1
     ingress:
         enabled: true
         annotations:
