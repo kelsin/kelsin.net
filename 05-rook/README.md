@@ -13,9 +13,9 @@ on each host to provide storage. Looking into a better way for LKE later.
 Just run the files in order
 
 ``` shell
-kubectl apple -f 01-common.yaml
+kubectl apply -f 01-common.yaml
 kubectl label namespace rook-ceph monitor=true
-kubectl apple -f 02-operator.yaml
-kubectl apple -f 03-cluster.yaml
-kubectl apple -f 04-storageclass.yaml
+kubectl apply -f 02-operator.yaml
+kubectl apply -f 03-cluster.yaml
+kubectl apply -f 04-storageclass.yaml
 ```
