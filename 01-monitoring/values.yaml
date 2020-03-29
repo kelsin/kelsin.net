@@ -18,15 +18,14 @@ grafana:
             ceph-cluster:
                 gnetId: 2842
                 revision: 11
-                datasource: Prometheus
             ceph-osd:
                 gnetId: 5336
                 revision: 3
-                datasource: Prometheus
+                prometheus: Prometheus
             ceph-pools:
                 gnetId: 5342
                 revision: 3
-                datasource: Prometheus
+                prometheus: Prometheus
     ingress:
         enabled: true
         annotations:
