@@ -1,0 +1,36 @@
+alertmanager:
+    ingress:
+        enabled: true
+        annotations:
+            cert-manager.io/cluster-issuer: letsencrypt-production
+            external-dns.alpha.kubernetes.io/hostname: alerts.kelsin.net
+        hosts:
+            - alerts.kelsin.net
+        tls:
+            - secretName: alertmanager-server-tls
+              hosts:
+                  - alerts.kelsin.net
+prometheus:
+    ingress:
+        enabled: true
+        annotations:
+            cert-manager.io/cluster-issuer: letsencrypt-production
+            external-dns.alpha.kubernetes.io/hostname: prometheus.kelsin.net
+        hosts:
+            - prometheus.kelsin.net
+        tls:
+            - secretName: prometheus-server-tls
+              hosts:
+                  - prometheus.kelsin.net
+grafana:
+    ingress:
+        enabled: true
+        annotations:
+            cert-manager.io/cluster-issuer: letsencrypt-production
+            external-dns.alpha.kubernetes.io/hostname: grafana.kelsin.net
+        hosts:
+            - grafana.kelsin.net
+        tls:
+            - secretName: grafana-server-tls
+              hosts:
+                  - grafana.kelsin.net

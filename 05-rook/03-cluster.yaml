@@ -26,7 +26,7 @@ spec:
     enabled: true
     ssl: true
   monitoring:
-    enabled: false  # requires Prometheus to be pre-installed
+    enabled: true  # requires Prometheus to be pre-installed
     rulesNamespace: rook-ceph
   network:
     hostNetwork: false
@@ -48,12 +48,3 @@ spec:
       osdsPerDevice: "1" # this value can be overridden at the node or device level
     directories:
     - path: /var/lib/rook
-#    nodes:
-#    - name: "minikube"
-#      directories:
-#      - path: "/data/rook-dir"
-#      devices:
-#      - name: "sdb"
-#      - name: "nvme01" # multiple osds can be created on high performance devices
-#        config:
-#          osdsPerDevice: "5"
