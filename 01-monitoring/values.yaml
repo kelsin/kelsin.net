@@ -1,6 +1,11 @@
 alertmanager:
     enabled: false
 prometheus:
+    prometheusSpec:
+        podMonitorNamespaceSelector: {}
+        podMonitorSelector: {}
+        serviceMonitorNamespaceSelector: {}
+        serviceMonitorSelector: {}
     ingress:
         enabled: true
         annotations:
