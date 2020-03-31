@@ -1,14 +1,14 @@
 # Nginx Ingress Controller
 
-[Homepage](https://kubernetes.github.io/ingress-nginx/)
-[Helm Chart](https://github.com/helm/charts/tree/master/stable/nginx-ingress)
+[Homepage](https://github.com/nginxinc/kubernetes-ingress)
+[Helm Chart](https://docs.nginx.com/nginx-ingress-controller/installation/installation-with-helm/)
 
 ## Installation
 
 Add the stable helm repo:
 
 ``` shell
-helm repo add stable https://kubernetes-charts.storage.googleapis.com
+helm repo add nginx-stable https://helm.nginx.com/stable
 helm repo update
 ```
 
@@ -21,5 +21,5 @@ kubectl create namespace nginx
 Then install via the helm chart with the values.yaml file:
 
 ``` shell
-helm install nginx --values ./values.yaml --namespace nginx stable/nginx-ingress
+helm upgrade --install nginx --values ./values.yaml --namespace nginx nginx-stable/nginx-ingress
 ```

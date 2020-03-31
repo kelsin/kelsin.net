@@ -20,7 +20,7 @@ kubectl apply --validate=false -f https://github.com/jetstack/cert-manager/relea
 Now install cert-manager via helm:
 
 ``` shell
-helm install cert-manager jetstack/cert-manager --namespace cert-manager --version v0.14.0 --values ./values.yaml
+helm upgrade --install cert-manager jetstack/cert-manager --namespace cert-manager --version v0.14.0 --values ./values.yaml
 ```
 
 Then create the lets encrypt issuers:

@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: external-dns-do
+  name: external-dns-cloudflare
   namespace: external-dns
 spec:
   strategy:
     type: Recreate
   selector:
     matchLabels:
-      app: external-dns-do
+      app: external-dns-cloudflare
   template:
     metadata:
       labels:
-        app: external-dns-do
+        app: external-dns-cloudflare
     spec:
       serviceAccountName: external-dns
       containers:
@@ -21,10 +21,10 @@ spec:
         args:
         - --source=ingress
         - --source=service
-        - --provider=digitalocean
+        - --provider=cloudflare
         env:
-        - name: DO_TOKEN
+        - name: CF_API_TOKEN
           valueFrom:
             secretKeyRef:
-              name: do-token
+              name: cloudflare-token
               key: token

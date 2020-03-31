@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: external-dns
+  name: external-dns-linode
   namespace: external-dns
 spec:
   strategy:
     type: Recreate
   selector:
     matchLabels:
-      app: external-dns
+      app: external-dns-linode
   template:
     metadata:
       labels:
-        app: external-dns
+        app: external-dns-linode
     spec:
       serviceAccountName: external-dns
       containers:
@@ -20,6 +20,7 @@ spec:
         image: registry.opensource.zalan.do/teapot/external-dns:latest
         args:
         - --source=ingress
+        - --source=service
         - --provider=linode
         env:
         - name: LINODE_TOKEN

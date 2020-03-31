@@ -1,15 +1,7 @@
-rbac:
-    create: true
 controller:
-    kind: DaemonSet
-    metrics:
-        enabled: true
-        serviceMonitor:
-            enabled: true
+    kind: daemonset
     service:
-        type: LoadBalancer
-        externalTrafficPolicy: Local
-    publishService:
-        enabled: true
-defaultBackend:
-    enabled: false
+        annotations:
+            external-dns.alpha.kubernetes.io/hostname: kels.in
+prometheus:
+    create: true

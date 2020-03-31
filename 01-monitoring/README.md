@@ -22,12 +22,12 @@ kubectl create namespace monitoring
 Create a secret for the prometheus/grafana admin username and password:
 
 ``` shell
-htpasswd -c admin admin
+htpasswd -c admin auth
 kubectl create secret generic -n monitoring admin --from-literal=admin-user=admin --from-literal=admin-password=<PASSWORD> --from-file=auth
 ```
 
 Then install via the helm chart with the values.yaml file:
 
 ``` shell
-helm install prometheus --values ./values.yaml --namespace monitoring stable/prometheus-operator
+helm upgrade --install prometheus --values ./values.yaml --namespace monitoring stable/prometheus-operator
 ```

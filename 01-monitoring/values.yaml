@@ -11,6 +11,7 @@ prometheus:
         annotations:
             cert-manager.io/cluster-issuer: letsencrypt-production
             external-dns.alpha.kubernetes.io/hostname: prometheus.kels.in
+            external-dns.alpha.kubernetes.io/target: kels.in
             nginx.ingress.kubernetes.io/auth-type: basic
             nginx.ingress.kubernetes.io/auth-secret: admin
             nginx.ingress.kubernetes.io/auth-realm: 'Authentication Required - kels.in'
@@ -44,6 +45,7 @@ grafana:
         annotations:
             cert-manager.io/cluster-issuer: letsencrypt-production
             external-dns.alpha.kubernetes.io/hostname: grafana.kels.in
+            external-dns.alpha.kubernetes.io/target: kels.in
         hosts:
             - grafana.kels.in
         tls:

@@ -1,0 +1,17 @@
+crds:
+    create: true
+settings:
+    writeNamespace: gloo
+discover:
+    deployment:
+        stats:
+            enabled: true
+gateway:
+    deployment:
+        states:
+            enabled: true
+gatewayProxies:
+    gatewayProxy:
+        service:
+            extraAnnotations:
+                external-dns.alpha.kubernetes.io/hostname: kels.in
