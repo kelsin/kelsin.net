@@ -1,7 +1,0 @@
-controller:
-    kind: daemonset
-    service:
-        annotations:
-            external-dns.alpha.kubernetes.io/hostname: kels.in
-prometheus:
-    create: true

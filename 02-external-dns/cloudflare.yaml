@@ -21,6 +21,7 @@ spec:
         args:
         - --source=ingress
         - --source=service
+        - --source=istio-gateway
         - --provider=cloudflare
         env:
         - name: CF_API_TOKEN

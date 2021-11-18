@@ -1,7 +1,0 @@
-additionalArguments:
-  - "--providers.kubernetesingress"
-  - "--providers.kubernetesingress.ingressendpoint.publishedservice=traefik/traefik"
-
-service:
-  annotations:
-    external-dns.alpha.kubernetes.io/hostname: kels.in
